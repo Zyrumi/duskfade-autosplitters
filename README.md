@@ -2,6 +2,8 @@
 
 LiveSplit autosplitters for [Duskfade](https://store.steampowered.com/app/2542020). Two scripts, pick the one for your category. Both only read the game's memory and save files and never write to the game.
 
+The any% splitter is part of **LiveSplit's official autosplitter list**: set your game name to Duskfade and LiveSplit offers it automatically (see [Setup](#setup)).
+
 **Use only one at a time.** Running both would fire every start and split twice.
 
 | | Any% (`Duskfade.asl`) | Any category (`Duskfade-LoadSplitter.asl`) |
@@ -16,9 +18,25 @@ Both pause LiveSplit's **Game Time** during loading screens. To see load-removed
 
 ## Setup
 
-1. Download [`Duskfade.asl`](Duskfade.asl) or [`Duskfade-LoadSplitter.asl`](Duskfade-LoadSplitter.asl).
+### Any%: built into LiveSplit (recommended)
+
+The any% splitter is listed in LiveSplit's official autosplitter list, so there's nothing to download:
+
+1. In LiveSplit: right-click → **Edit Splits...**
+2. Set **Game Name** to `Duskfade`.
+3. Click **Activate**, then **Settings** to choose your splits.
+
+LiveSplit downloads the script from this repo and keeps it updated automatically. Your settings are saved with your splits file.
+
+### Manual install (load splitter, or any% if you prefer)
+
+The load splitter isn't in LiveSplit's list yet, so it's installed by hand:
+
+1. Download [`Duskfade-LoadSplitter.asl`](Duskfade-LoadSplitter.asl) (or [`Duskfade.asl`](Duskfade.asl)).
 2. In LiveSplit: right-click → Edit Layout → **+** → Control → **Scriptable Auto Splitter**.
 3. In that component's settings, browse to the downloaded `.asl` file.
+
+A manually installed script doesn't update itself; download it again to get fixes. If you switch to the built-in any% splitter, remove the Scriptable Auto Splitter from your layout, or both will run and every split fires twice.
 
 ## Any% (`Duskfade.asl`)
 
@@ -26,7 +44,7 @@ Every split is its own checkbox in the component's settings, grouped by chapter 
 
 Auto-reset on returning to the main menu is available but off by default. If you turn it on, note that restarting the game after a crash also counts as returning to the menu and will reset your run.
 
-If you have more than one save slot on disk, set `SlotFileName` at the top of the script to your exact slot (e.g. `DFSlot_1.sav`), so an unrelated slot (e.g. a Steam Cloud sync) can't trigger a wrong split.
+By default it watches whichever save slot changed most recently, which is right for almost everyone. If you install manually and have more than one save slot on disk, you can set `SlotFileName` at the top of the script to your exact slot (e.g. `DFSlot_1.sav`), so an unrelated slot (e.g. a Steam Cloud sync) can't trigger a wrong split. This isn't possible with the built-in version, since LiveSplit replaces the script when it updates.
 
 ## Any category (`Duskfade-LoadSplitter.asl`)
 
@@ -42,7 +60,7 @@ Your splits file needs one segment per arrival at a checked level (count every r
 
 ## Branches
 
-- `main` holds only scripts that are known to work. This is what runners should use.
+- `main` holds only scripts that are known to work. This is what runners should use, and what LiveSplit downloads for the built-in any% splitter.
 - `dev` is where changes are made and tested first. Pull requests should target `dev`.
 
 ## Credits
