@@ -133,7 +133,8 @@ startup
 
     settings.Add("autostart", true, "Auto-start on New Game (difficulty confirm)");
     settings.Add("autoend", true, "Auto-split on Credits (true ending)");
-    settings.Add("autoreset", true, "Auto-reset if you return to the menu mid-run");
+    settings.Add("autoreset", false, "Auto-reset if you return to the menu mid-run");
+    settings.SetToolTip("autoreset", "Off by default. Also resets if you restart the game after a crash.");
     settings.Add("worldfallback", true, "Also split on level load when no checkpoint save happens (wrong warps)");
 
     vars.MenuWorldName = "MenuInicio";

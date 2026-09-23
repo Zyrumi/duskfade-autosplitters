@@ -10,7 +10,7 @@ LiveSplit autosplitters for [Duskfade](https://store.steampowered.com/app/254202
 | Starts | Leaving the main menu (New Game) | Leaving the main menu (New Game), same moment as any% |
 | Splits | Each zone on the fixed any% route | Every arrival in a different level, revisits included |
 | Ends | Credits | Credits |
-| Resets | Returning to the main menu (on by default) | Off by default, so quitting to the menu doesn't end a long run |
+| Resets | Optional on returning to the main menu (off by default) | Off by default, so quitting to the menu doesn't end a long run |
 
 Both pause LiveSplit's **Game Time** during loading screens. To see load-removed time, right-click LiveSplit → Compare Against → **Game Time**. This reads a fixed memory address, so a game patch may break it until the script is updated.
 
@@ -23,6 +23,8 @@ Both pause LiveSplit's **Game Time** during loading screens. To see load-removed
 ## Any% (`Duskfade.asl`)
 
 Every split is its own checkbox in the component's settings, grouped by chapter and all on by default. Uncheck anything not in your route and it's skipped. Zones reached without a checkpoint save, like the wrong warp out of Guayota, still split when the level loads.
+
+Auto-reset on returning to the main menu is available but off by default. If you turn it on, note that restarting the game after a crash also counts as returning to the menu and will reset your run.
 
 If you have more than one save slot on disk, set `SlotFileName` at the top of the script to your exact slot (e.g. `DFSlot_1.sav`), so an unrelated slot (e.g. a Steam Cloud sync) can't trigger a wrong split.
 
